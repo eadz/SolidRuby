@@ -111,6 +111,7 @@ module SolidRuby
         end
 
         output.save("output/#{res.class}_#{i}.scad", "$fn=#{fn};") unless output.nil?
+       #system("/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD -o output/#{res.class}_#{i}.3mf output/#{res.class}_#{i}.scad") 
       rescue Exception => e
         File.open("output/#{res.class}_#{i}.scad", "w") do |file|
           file <<
