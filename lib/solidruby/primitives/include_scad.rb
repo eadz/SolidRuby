@@ -26,7 +26,7 @@ module SolidRuby::Primitives
     end
 
     def to_rubyscad
-      RubyScadBridge.new.include_scad(@attributes)
+      RubyScadBridge.new.include_scad(@attributes[:file])
     end
   end
 

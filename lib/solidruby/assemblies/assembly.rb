@@ -66,6 +66,7 @@ module SolidRuby::Assemblies
 
     def walk_tree
       res = debug? ? '#' : ''
+      res += pre_raw_output 
       res + output.walk_tree
     end
 
@@ -83,6 +84,7 @@ module SolidRuby::Assemblies
 
     def scad_output
       res = debug? ? '#' : ''
+      res += pre_raw_output 
       res + output.scad_output
     end
 

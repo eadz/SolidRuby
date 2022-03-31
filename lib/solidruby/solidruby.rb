@@ -73,8 +73,8 @@ module SolidRuby
     a * 180 / Math::PI
   end
 
-  def save!
-    Dir.glob('lib/**/*.rb').map { |l| get_classes_from_file(l) }.flatten.map { |l| save_all(l) }
+  def save!(extra)
+    Dir.glob('lib/**/*.rb').map { |l| get_classes_from_file(l) }.flatten.map { |l| save_all(l, extra) }
   end
 
   # Saves all files generated of a SolidRuby file
@@ -82,7 +82,7 @@ module SolidRuby
   # - show
   # - output
   # - view*
-  def save_all(class_name, fn = $fn)
+  def save_all(class_name, extra)
     res = class_name.send :new
 
     # skip defined classes

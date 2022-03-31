@@ -18,6 +18,7 @@ require 'solidruby/primitives/square'
 require 'solidruby/primitives/render'
 require 'solidruby/primitives/import'
 require 'solidruby/primitives/include_scad'
+require 'solidruby/primitives/raw_scad'
 require 'solidruby/primitives/surface'
 require 'solidruby/primitives/text'
 

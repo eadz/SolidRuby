@@ -34,6 +34,10 @@ module SolidRuby
       end
     end
 
+    def pre_raw_output
+      ''
+    end
+
     def rotate(args)
       # always make sure we have a z parameter; otherwise RubyScad will produce a 2-dimensional output
       # which can result in openscad weirdness
@@ -127,7 +131,7 @@ module SolidRuby
     end
 
     def walk_tree
-      res = ''
+      res = pre_raw_output
 
       @transformations.reverse.each do |trans|
         res += trans.walk_tree
@@ -158,6 +162,7 @@ module SolidRuby
     def save(filename, start_text = nil)
       file = File.open(filename, 'w')
       file.puts start_text unless start_text.nil?
+      file.puts pre_raw_output unless pre_raw_output.nil?
       file.puts scad_output
       file.close
     end

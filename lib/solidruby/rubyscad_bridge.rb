@@ -58,6 +58,7 @@ module SolidRuby
     TEXT_STR      = 'text(%<args>s);'.freeze
 
     INCLUDE_STR = 'include <%<file>s>'.freeze
+    RAW_STR     = '%<text>s'.freeze
     USE_STR     = 'use <%<file>s>'.freeze
     ECHO_STR    = 'echo(%<string>s);'.freeze
     FA_STR      = '$fa = %<value>s;'.freeze
@@ -78,6 +79,10 @@ module SolidRuby
 
     def include_scad(file)
       format_output INCLUDE_STR % { file: file }
+    end
+
+    def raw_scad(text)
+      format_output RAW_STR % { text: text }
     end
 
     def use(file)
